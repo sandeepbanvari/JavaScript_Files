@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CineSphere</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+
+            <div class="logo" id="headerLogo">
+                <i class="fa-solid fa-film"></i> Cine<span>Sphere</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a class="nav-link active" id="navHome">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+
+                <a class="nav-link" id="navFavorites">
+                    <i class="fa-solid fa-star"></i> Favorites
+                </a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle-btn" id="themeToggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main-content">
+
+        <!-- Hero -->
+        <section class="hero-section">
+
+            <div class="hero-bg-overlay"></div>
+
+            <div class="hero-container">
+
+                <h1 class="hero-title">Your Ultimate Movie Guide</h1>
+
+                <p class="hero-subtitle">
+                    Search for details on millions of movies, TV shows, and series.
+                </p>
+
+                <form class="search-form" id="searchForm">
+
+                    <div class="search-wrapper">
+
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+                        <input
+                            class="search-input"
+                            id="searchInput"
+                            type="text"
+                        >
+
+                        <button class="clear-search-btn" id="clearSearchBtn" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <button class="search-submit-btn" type="submit">
+                        <span>Search</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </form>
+
+                <div class="validation-message" id="validationMessage"></div>
+
+            </div>
+
+        </section>
+
+        <!-- Loader -->
+
+        <div class="loader-container hidden" id="loadingSpinner">
+
+            <div class="spinner">
+
+                <div class="spinner-ring"></div>
+
+                <div class="spinner-icon">
+                    <i class="fa-solid fa-film"></i>
+                </div>
+
+            </div>
+
+            <p>Fetching cinematic details...</p>
+
+        </div>
+
+        <!-- Error -->
+
+        <section class="error-container hidden" id="errorCard">
+
+            <div class="error-content glass-card">
+
+                <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+
+                <h2 class="error-title">
+                    Oops! Something went wrong
+                </h2>
+
+                <p class="error-text" id="errorMessage">
+                    Movie not found.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Movie Details -->
+
+        <section class="details-section hidden" id="movieDetailsSection">
+
+            <div class="container">
+
+                <div class="movie-detail-card glass-card" id="movieCard">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Featured -->
+
+        <section class="featured-section" id="featuredSection">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    <i class="fa-solid fa-fire text-primary"></i>
+                    Popular Movies
+                </h2>
+
+                <div class="movies-grid" id="featuredMoviesGrid">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Favorites -->
+
+        <section class="favorites-section" id="favoritesSection">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-star text-star"></i>
+                        My Favorites
+                    </h2>
+
+                    <span class="badge" id="favoritesCount">
+                        0
+                    </span>
+
+                </div>
+
+                <div class="movies-grid" id="favoritesGrid">
+
+                    <div class="empty-state" id="favoritesEmptyState">
+
+                        <i class="fa-regular fa-star"></i>
+
+                        <p>
+                            No favorites added yet.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="main-footer">
+
+        <div class="footer-container">
+
+            <p>
+                © 2026 CineSphere. All rights reserved.
+            </p>
+
+            <p class="footer-api-notice">
+                Powered by OMDb API.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Scroll Button -->
+
+    <button class="scroll-top-btn" id="scrollTopBtn">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
