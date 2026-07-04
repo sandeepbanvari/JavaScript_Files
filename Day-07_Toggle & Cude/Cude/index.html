@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cude Rotate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .cube {
+            display: flex;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+
+        .face {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.8;
+        }
+
+        .front {
+            background-color: red;
+            transform: translateZ(100px);
+        }
+
+        .back {
+            background-color: blue;
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .left {
+            background-color: green;
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+
+        .right {
+            background-color: yellow;
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        .top {
+            background-color: orange;
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        .bottom {
+            background-color: purple;
+            transform: translateY(100px) rotateX(-90deg);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D cube rotate -->
+
+    <div class="cube">
+        <div class="face front"> 1</div>
+        <div class="face back">2</div>
+        <div class="face left">3</div>
+        <div class="face right">4</div>
+        <div class="face top">5</div>
+        <div class="face bottom">6</div>
+    </div>
+</body>
+</html>
