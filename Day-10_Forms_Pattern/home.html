@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" defer></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div>
+            <div class="logo">
+                <h2>🚀 Dashboard</h2>
+            </div>
+
+            <ul class="menu">
+                <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fa-solid fa-chart-line"></i> Analytics</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                <li><a href="#"><i class="fa-solid fa-envelope"></i> Messages</a></li>
+            </ul>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Welcome Back 👋</h1>
+                <p>Here's what's happening today.</p>
+            </div>
+
+            <div class="profile">
+                <img src="https://i.pravatar.cc/100" alt="Profile">
+                <span>Admin</span>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <section class="stats-grid">
+
+            <div class="card">
+                <div class="card-icon users">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h3>Total Users</h3>
+                <h2>1,250</h2>
+                <p>+12% this month</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon revenue">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                </div>
+                <h3>Revenue</h3>
+                <h2>$8,450</h2>
+                <p>+18% this month</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon orders">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <h3>Orders</h3>
+                <h2>320</h2>
+                <p>+8% this month</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon messages">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <h3>Messages</h3>
+                <h2>84</h2>
+                <p>+4% this month</p>
+            </div>
+
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="activity-section">
+            <h2>Recent Activity</h2>
+
+            <div class="activity-list">
+
+                <div class="activity-item">
+                    <span class="dot success"></span>
+                    New user registered successfully.
+                    <small>2 min ago</small>
+                </div>
+
+                <div class="activity-item">
+                    <span class="dot warning"></span>
+                    New order received from customer.
+                    <small>15 min ago</small>
+                </div>
+
+                <div class="activity-item">
+                    <span class="dot info"></span>
+                    Payment processed successfully.
+                    <small>30 min ago</small>
+                </div>
+
+                <div class="activity-item">
+                    <span class="dot danger"></span>
+                    Password changed for account.
+                    <small>1 hour ago</small>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Keyboard Synth</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #2b2b2b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        .keyboard {
+            display: flex;
+            gap: 8px;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            flex-wrap: wrap;
+        }
+
+        .key {
+            width: 60px;
+            height: 220px;
+            background: white;
+            border-radius: 0 0 8px 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.05s ease;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .key.playing {
+            transform: scale(0.96) translateY(5px);
+            background: #e0e0e0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .key span {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 8px;
+            font-weight: normal;
+        }
+
+        kbd {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="keyboard">
+        <div class="key" data-key="a" data-note="261.63">
+            <kbd>A</kbd>
+            <span>C4</span>
+        </div>
+
+        <div class="key" data-key="s" data-note="293.66">
+            <kbd>S</kbd>
+            <span>D4</span>
+        </div>
+
+        <div class="key" data-key="d" data-note="329.63">
+            <kbd>D</kbd>
+            <span>E4</span>
+        </div>
+
+        <div class="key" data-key="f" data-note="349.23">
+            <kbd>F</kbd>
+            <span>F4</span>
+        </div>
+
+        <div class="key" data-key="g" data-note="392.00">
+            <kbd>G</kbd>
+            <span>G4</span>
+        </div>
+
+        <div class="key" data-key="h" data-note="440.00">
+            <kbd>H</kbd>
+            <span>A4</span>
+        </div>
+
+        <div class="key" data-key="j" data-note="493.88">
+            <kbd>J</kbd>
+            <span>B4</span>
+        </div>
+
+        <div class="key" data-key="k" data-note="523.25">
+            <kbd>K</kbd>
+            <span>C5</span>
+        </div>
+
+        <!-- New L key -->
+        <div class="key" data-key="l" data-note="587.33">
+            <kbd>L</kbd>
+            <span>D5</span>
+        </div>
+    </div>
+
+    <script>
+        // Create Audio Context
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(frequency, keyElement) {
+            // Resume audio if suspended
+            if (audioCtx.state === "suspended") {
+                audioCtx.resume();
+            }
+
+            // Create oscillator and gain
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            // Sound settings
+            oscillator.type = "triangle"; // sine, square, sawtooth, triangle
+            oscillator.frequency.value = frequency;
+
+            // Connect audio nodes
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            // Volume envelope
+            gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(
+                0.001,
+                audioCtx.currentTime + 1.5
+            );
+
+            // Play
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 1.5);
+
+            // Visual effect
+            keyElement.classList.add("playing");
+
+            setTimeout(() => {
+                keyElement.classList.remove("playing");
+            }, 150);
+        }
+
+        // Keyboard input
+        window.addEventListener("keydown", (e) => {
+            if (e.repeat) return;
+
+            const key = e.key.toLowerCase();
+
+            const keyElement = document.querySelector(
+                `.key[data-key="${key}"]`
+            );
+
+            if (!keyElement) return;
+
+            const frequency = parseFloat(
+                keyElement.getAttribute("data-note")
+            );
+
+            playSound(frequency, keyElement);
+        });
+
+        // Mouse click support
+        document.querySelectorAll(".key").forEach((keyElement) => {
+            keyElement.addEventListener("click", () => {
+                const frequency = parseFloat(
+                    keyElement.getAttribute("data-note")
+                );
+
+                playSound(frequency, keyElement);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+<!-- 
+Twinkle Twinkle Little Star
+A A G G H H G
+F F D D S S A
+G G F F D D S
+G G F F D D S
+A A G G H H G
+F F D D S S A 
+
+Jingle Bells
+D D D
+D D D
+D G A S
+D
+
+F F F F
+F D D D
+D S S D
+S G-->

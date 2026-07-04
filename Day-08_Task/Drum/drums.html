@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Tune 🎂</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #2b2b2b;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #ff9800;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        p {
+            margin-top: 15px;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎂 Happy Birthday Tune 🎵</h1>
+
+    <button id="playBtn">Play Happy Birthday</button>
+
+    <p>Click the button or press <strong>P</strong> to play the melody.</p>
+
+    <script>
+        // Create Audio Context
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        // Happy Birthday melody
+        const melody = [
+            { note: 264, duration: 0.3 },
+            { note: 264, duration: 0.3 },
+            { note: 297, duration: 0.6 },
+            { note: 264, duration: 0.6 },
+            { note: 352, duration: 0.6 },
+            { note: 330, duration: 1.0 },
+
+            { note: 264, duration: 0.3 },
+            { note: 264, duration: 0.3 },
+            { note: 297, duration: 0.6 },
+            { note: 264, duration: 0.6 },
+            { note: 396, duration: 0.6 },
+            { note: 352, duration: 1.0 },
+
+            { note: 264, duration: 0.3 },
+            { note: 264, duration: 0.3 },
+            { note: 528, duration: 0.6 },
+            { note: 440, duration: 0.6 },
+            { note: 352, duration: 0.6 },
+            { note: 330, duration: 0.6 },
+            { note: 297, duration: 1.0 },
+
+            { note: 466, duration: 0.3 },
+            { note: 466, duration: 0.3 },
+            { note: 440, duration: 0.6 },
+            { note: 352, duration: 0.6 },
+            { note: 396, duration: 0.6 },
+            { note: 352, duration: 1.5 }
+        ];
+
+        function playHappyBirthday() {
+            // Resume audio if suspended
+            if (audioCtx.state === "suspended") {
+                audioCtx.resume();
+            }
+
+            let time = audioCtx.currentTime;
+
+            melody.forEach(({ note, duration }) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = "triangle"; // sine, square, sawtooth, triangle
+                osc.frequency.value = note;
+
+                gain.gain.setValueAtTime(0.3, time);
+                gain.gain.exponentialRampToValueAtTime(
+                    0.001,
+                    time + duration
+                );
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(time);
+                osc.stop(time + duration);
+
+                time += duration;
+            });
+        }
+
+        // Button click
+        document.getElementById("playBtn").addEventListener("click", () => {
+            playHappyBirthday();
+        });
+
+        // Press P key to play
+        window.addEventListener("keydown", (e) => {
+            if (e.key.toLowerCase() === "p") {
+                playHappyBirthday();
+            }
+        });
+    </script>
+
+</body>
+</html>
+<!-- 
+Twinkle Twinkle Little Star
+A A G G H H G
+F F D D S S A
+G G F F D D S
+G G F F D D S
+A A G G H H G
+F F D D S S A 
+
+Jingle Bells
+D D D
+D D D
+D G A S
+D
+
+F F F F
+F D D D
+D S S D
+S G-->

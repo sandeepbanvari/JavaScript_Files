@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map and Filter Methods</title>
+
+   <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        padding: 30px;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    /* Search Container */
+    .container {
+        width: 400px;
+        max-width: 90%;
+        margin: 0 auto 40px;
+        padding: 25px;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .container h2 {
+        color: #1e293b;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #cbd5e1;
+        border-radius: 12px;
+        font-size: 16px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border-color: #f97316;
+        box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
+    }
+
+    #cards-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .card {
+        width: 280px;
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card h2 {
+        padding: 15px 15px 5px;
+        color: #1e293b;
+        font-size: 22px;
+    }
+
+    .card p {
+        padding: 0 15px;
+        color: #64748b;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .price {
+        padding: 10px 15px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #f97316;
+    }
+
+    .card button {
+        width: calc(100% - 30px);
+        margin: 15px;
+        padding: 12px;
+        border: none;
+        border-radius: 12px;
+        background: #f97316;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .card button:hover {
+        background: #ea580c;
+    }
+    /* Cart Link */
+.container a {
+    display: inline-block;
+    margin-top: 18px;
+    text-decoration: none;
+    background: #f97316;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.container a:hover {
+    background: #ea580c;
+    transform: translateY(-3px);
+}
+
+.container a sup {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+    @media (max-width: 768px) {
+        body {
+            padding: 15px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 320px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Map and Filter Methods</h2>
+        <input type="text" id="input"  placeholder="Search here...">
+        <a href="#">Cart<sup>0</sup></a>
+    </div>
+
+    <div id="cards-container">
+
+        <!-- <div class="card">
+            <img src="" alt="">
+            <h2></h2>
+            <p></p>
+            <button>Add to Cart</button>
+        </div> -->
+
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>

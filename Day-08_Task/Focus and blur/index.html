@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 20px;
+}
+
+.form{
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+}
+
+.message{
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.flex{
+    display: flex;
+    gap: 12px;
+}
+
+.form label{
+    position: relative;
+    width: 100%;
+}
+
+.input{
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+}
+
+.input:focus{
+    border-color: #4f46e5;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(79,70,229,0.15);
+}
+
+.form label span{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    transition: 0.3s;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.input:focus + span,
+.input:valid + span{
+    top: 0;
+    font-size: 12px;
+    color: #4f46e5;
+    font-weight: 600;
+}
+
+.submit{
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #4f46e5;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit:hover{
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79,70,229,0.3);
+}
+
+.signin{
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.signin a{
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signin a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 500px){
+    .flex{
+        flex-direction: column;
+    }
+
+    .form{
+        padding: 25px;
+    }
+}
+</style>
+
+<body>
+    <!-- From Uiverse.io by Yaya12085 -->
+    <form class="form">
+        <p class="title">Register </p>
+        <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+            <label>
+                <input required="" placeholder="" type="text" class="input" id="fname">
+                <span>Firstname</span>
+            </label>
+
+            <label>
+                <input required="" placeholder="" type="text" class="input" id="lname">
+                <span>Lastname</span>
+            </label>
+        </div>
+
+        <label>
+            <input required="" placeholder="" type="email" class="input" id="email">
+            <span>Email</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="password" class="input" id="password">
+            <span>Password</span>
+        </label>
+        <label>
+            <input required="" placeholder="" type="password" class="input" id="confirm-password">
+            <span>Confirm password</span>
+        </label>
+        <button class="submit" id="submit">Submit</button>
+        <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+    </form>
+
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
