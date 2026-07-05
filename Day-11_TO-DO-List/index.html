@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .todo-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .todo-box h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
+        }
+
+        /* Form Section */
+        .input-group>div:first-child {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 12px rgba(102, 126, 234, 0.2);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: none;
+        }
+
+        #addBtn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        #addBtn:hover {
+            background: #4f63d8;
+            transform: translateY(-2px);
+        }
+
+        /* Task Section */
+        .task-list {
+            background: #f8f9fc;
+            border-radius: 16px;
+            padding: 20px;
+            height: auto;
+        }
+
+        #task-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .empty-state img {
+            width: 140px;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #777;
+        }
+
+        /* Task Card */
+        .task {
+            background: #fff;
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #667eea;
+            transition: 0.3s ease;
+        }
+
+        .task:hover {
+            transform: translateY(-3px);
+        }
+
+        .task h3 {
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .task p {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .task small {
+            color: #888;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Action Buttons */
+        .task-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .edit-btn {
+            background: #28a745;
+        }
+
+        .edit-btn:hover {
+            background: #218838;
+        }
+
+        .delete-btn {
+            background: #dc3545;
+        }
+
+        .delete-btn:hover {
+            background: #c82333;
+        }
+
+        /* Scrollbar */
+        .task-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .task-list::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        .task-list::-webkit-scrollbar-track {
+            background: #ddd;
+        }
+
+        #task-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+        /* Responsive */
+        @media(max-width: 900px) {
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+
+            .task-list {
+                min-height: 350px;
+            }
+        }
+
+        @media(max-width: 500px) {
+            .todo-box {
+                padding: 20px;
+            }
+
+            .todo-box h1 {
+                font-size: 1.6rem;
+            }
+
+            input,
+            textarea,
+            #addBtn {
+                font-size: 14px;
+            }
+
+            .task-actions {
+                flex-direction: column;
+            }
+        }
+        .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+    font-size: 22px;
+}
+
+.edit-icon {
+    color: #28a745;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.edit-icon:hover {
+    transform: scale(1.2);
+}
+
+.delete-icon {
+    color: #dc3545;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.delete-icon:hover {
+    transform: scale(1.2);
+}
+    </style> -->
+<style>
+    /* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+}
+
+.todo-box{
+    background:#111827;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+.todo-box h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#22d3ee;
+    font-size:2rem;
+    font-weight:700;
+}
+
+/* Layout */
+.input-group{
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:25px;
+}
+
+.input-group > div:first-child{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* Inputs */
+input,
+textarea{
+    width:100%;
+    padding:14px;
+    border:2px solid #374151;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
+    font-family:'Poppins',sans-serif;
+    background:#1f2937;
+    color:white;
+    transition:0.3s;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#9ca3af;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#22d3ee;
+    box-shadow:0 0 12px rgba(34,211,238,0.3);
+}
+
+textarea{
+    min-height:120px;
+    resize:none;
+}
+
+/* Button */
+#addBtn{
+    background:#22d3ee;
+    color:#111827;
+    border:none;
+    padding:14px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#addBtn:hover{
+    background:#06b6d4;
+    transform:translateY(-2px);
+}
+
+/* Task Area */
+.task-list{
+    background:#1f2937;
+    border-radius:16px;
+    padding:20px;
+    min-height:500px;
+}
+
+#task-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* Empty State */
+.empty-state{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.empty-state img{
+    width:140px;
+    margin-bottom:15px;
+}
+
+.empty-state h3{
+    color:#ffffff;
+    margin-bottom:10px;
+}
+
+.empty-state p{
+    color:#cbd5e1;
+}
+
+/* Task Card */
+#task-list li{
+    background:#111827;
+    border-left:5px solid #22d3ee;
+    border-radius:15px;
+    padding:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+#task-list li:hover{
+    transform:translateY(-4px);
+}
+
+.task{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.task h3{
+    color:#ffffff;
+    font-size:20px;
+}
+
+.task p{
+    color:#d1d5db;
+    line-height:1.6;
+}
+
+.task span{
+    color:#9ca3af;
+    font-size:14px;
+}
+
+/* Icons */
+.icons{
+    display:flex;
+    justify-content:flex-end;
+    gap:18px;
+    margin-top:15px;
+    padding-top:12px;
+    border-top:1px solid #374151;
+}
+
+.icons i{
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.edit-icon{
+    color:#22c55e;
+}
+
+.edit-icon:hover{
+    transform:scale(1.2);
+}
+
+.delete-icon{
+    color:#ef4444;
+}
+
+.delete-icon:hover{
+    transform:scale(1.2);
+}
+
+/* Scrollbar */
+.task-list::-webkit-scrollbar{
+    width:8px;
+}
+
+.task-list::-webkit-scrollbar-thumb{
+    background:#22d3ee;
+    border-radius:10px;
+}
+
+.task-list::-webkit-scrollbar-track{
+    background:#374151;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+    .input-group{
+        grid-template-columns:1fr;
+    }
+
+    .task-list{
+        min-height:350px;
+    }
+}
+
+@media(max-width:500px){
+
+    .todo-box{
+        padding:20px;
+    }
+
+    .todo-box h1{
+        font-size:1.6rem;
+    }
+
+    input,
+    textarea,
+    #addBtn{
+        font-size:14px;
+    }
+
+    .icons{
+        justify-content:center;
+    }
+
+    .task h3{
+        font-size:18px;
+    }
+
+    .task p{
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="todo-box">
+            <h1>To-Do List</h1>
+
+
+            <div class="input-group">
+                <div>
+                    <input type="text" id="title" placeholder="Task Title">
+
+                    <textarea id="description" placeholder="Task Description"></textarea>
+
+                    <input type="datetime-local" id="date">
+
+
+                    <button id="addBtn">Add Task</button>
+                </div>
+
+                <div class="task-list">
+                    <div id="task-container">
+                        <div class="empty-state" id="empty-state">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" alt="No Tasks">
+                            <h3>No Tasks Yet</h3>
+                            <p>Add your first task to get started!</p>
+                        </div>
+                        <ul id="task-list"></ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        
+
+
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
