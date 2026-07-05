@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #334155
+    );
+    padding: 20px;
+}
+
+div{
+    width: 100%;
+    max-width: 750px;
+    padding: 40px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.3),
+        0 0 20px rgba(255,255,255,0.05);
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+div:hover{
+    transform: translateY(-5px);
+}
+
+#quote{
+    font-size: 2rem;
+    color: #ffffff;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    position: relative;
+    min-height: 140px;
+}
+
+#quote::before{
+    content: "❝";
+    font-size: 3rem;
+    color: #38bdf8;
+    margin-right: 10px;
+}
+
+#quote::after{
+    content: "❞";
+    font-size: 3rem;
+    color: #38bdf8;
+    margin-left: 10px;
+}
+
+#author{
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+button{
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(
+        135deg,
+        #38bdf8,
+        #2563eb
+    );
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37,99,235,0.4);
+}
+
+button:active{
+    transform: scale(0.96);
+}
+
+@media (max-width: 768px){
+
+    div{
+        padding: 30px 20px;
+    }
+
+    #quote{
+        font-size: 1.5rem;
+        min-height: 120px;
+    }
+
+    #author{
+        font-size: 1rem;
+    }
+
+    button{
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px){
+
+    #quote{
+        font-size: 1.2rem;
+        line-height: 1.7;
+    }
+
+    #quote::before,
+    #quote::after{
+        font-size: 2rem;
+    }
+}
