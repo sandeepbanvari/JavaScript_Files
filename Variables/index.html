@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+
+body{
+    padding:20px;
+    background:#f5f5f5;
+}
+
+.container{
+    width:400px;
+    max-width:100%;
+    margin:auto;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:15px 0;
+}
+
+a{
+    text-decoration:none;
+    font-size:20px;
+}
+
+#cards-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.card{
+    width:280px;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.card h2{
+    margin:10px 0;
+}
+
+.card p{
+    margin-bottom:10px;
+}
+
+.card button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:orange;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Product Store</h1>
+
+    <input
+        type="text"
+        id="input"
+        placeholder="Search Product..."
+    >
+
+    <a href="#">
+        🛒 Cart <sup id="card">0</sup>
+    </a>
+
+    <h2>Total Price : ₹<span id="total">0</span></h2>
+</div>
+
+<div id="cards-container"></div>
+
+<script>
+const products = [
+  {
+    id:1,
+    image:"https://picsum.photos/300/200?random=1",
+    title:"Wireless Headphones",
+    description:"High-quality noise-canceling wireless headphones.",
+    price:2999
+  },
+  {
+    id:2,
+    image:"https://picsum.photos/300/200?random=2",
+    title:"Smart Watch",
+    description:"Track your fitness and notifications on the go.",
+    price:4999
+  },
+  {
+    id:3,
+    image:"https://picsum.photos/300/200?random=3",
+    title:"Bluetooth Speaker",
+    description:"Portable speaker with crystal-clear sound.",
+    price:1999
+  },
+  {
+    id:4,
+    image:"https://picsum.photos/300/200?random=4",
+    title:"Laptop Backpack",
+    description:"Durable backpack with multiple compartments.",
+    price:1499
+  },
+  {
+    id:5,
+    image:"https://picsum.photos/300/200?random=5",
+    title:"Gaming Mouse",
+    description:"Ergonomic mouse with customizable buttons.",
+    price:999
+  },
+  {
+    id:6,
+    image:"https://picsum.photos/300/200?random=6",
+    title:"Mechanical Keyboard",
+    description:"RGB backlit mechanical keyboard for gamers.",
+    price:2499
+  },
+  {
+    id:7,
+    image:"https://picsum.photos/300/200?random=7",
+    title:"Power Bank",
+    description:"10000mAh fast-charging power bank.",
+    price:1299
+  },
+  {
+    id:8,
+    image:"https://picsum.photos/300/200?random=8",
+    title:"Fitness Band",
+    description:"Monitor your health and daily activities.",
+    price:1799
+  }
+];
+
+let cart = [];
+
+const cont = document.getElementById("cards-container");
+const input = document.getElementById("input");
+
+function createCard(productList){
+
+    cont.innerHTML = productList.map(item => `
+        <div class="card">
+            <img src="${item.image}" alt="">
+            <h2>${item.title}</h2>
+            <p>${item.description}</p>
+            <h3>₹${item.price}</h3>
+            <button onclick="addtocart(${item.id})">
+                Add To Cart
+            </button>
+        </div>
+    `).join("");
+}
+
+createCard(products);
+
+
+
+input.addEventListener("input", () => {
+
+    const filtered = products.filter(item =>
+        item.title.toLowerCase()
+        .includes(input.value.toLowerCase())
+    );
+
+    createCard(filtered);
+});
+
+
+
+
+
+
+function addtocart(id){
+
+    const product = products.find(item => item.id === id);
+
+    cart.push(product);
+
+    alert(`${product.title} added to cart`);
+
+    document.getElementById("card").innerHTML = cart.length;
+
+    reducep(cart);
+}
+
+
+
+
+function reducep(datap){
+
+    const total = datap.reduce((acc,item)=>{
+        return acc + item.price;
+    },0);
+
+    document.getElementById("total").innerHTML = total;
+}
+</script>
+
+</body>
+</html>
