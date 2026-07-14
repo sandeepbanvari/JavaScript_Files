@@ -1,6 +1,6 @@
-// ===========================
+// ===================================================
 // 1. NUMBER (used in math, prices, counters, scores)
-// ===========================
+// ===================================================
 
 // Example 1: E-commerce total price
 const itemPrice = 499.99;
@@ -32,9 +32,9 @@ const interval = setInterval(() => {
 }, 1000);
 
 
-// ===========================
+// ===================================================
 // 2. STRING (used in messages, templates, formatting)
-// ===========================
+// ===================================================
 
 // Example 1: Greeting a user
 const username = "Vamsee";
@@ -64,9 +64,9 @@ function chatMessage(user, msg) {
 console.log(chatMessage("Nobitha", "Hello team!"));
 
 
-// ===========================
+// ===================================================
 // 3. BOOLEAN (used in flags, permissions, conditions)
-// ===========================
+// ===================================================
 
 // Example 1: Login check
 const isLoggedIn = true;
@@ -89,9 +89,9 @@ const isEmailValid = "test@example.com".includes("@");
 console.log("Valid Email?", isEmailValid);
 
 
-// ===========================
+// ===================================
 // 4. NULL (intentional empty values)
-// ===========================
+// ===================================
 
 // Example 1: No address added yet
 let address = null;
@@ -115,9 +115,9 @@ selectedProduct = null; // reset selection
 console.log("Selected Product:", selectedProduct);
 
 
-// ===========================
+// =============================
 // 5. UNDEFINED (missing values)
-// ===========================
+// =============================
 
 // Example 1: Declared but not assigned
 let emailId;
@@ -142,9 +142,9 @@ function doNothing() {}
 console.log(doNothing()); // undefined
 
 
-// ===========================
+// ===============================
 // 6. BIGINT (huge integer values)
-// ===========================
+// ===============================
 
 // Example 1: Large number storage
 const big = 123456789012345678901234567890n;
@@ -169,9 +169,9 @@ counter++;
 console.log("Counter:", counter);
 
 
-// ===========================
+// ==============================
 // 7. SYMBOL (unique identifiers)
-// ===========================
+// ==============================
 
 // Example 1: Unique object keys
 const id1 = Symbol("id");
