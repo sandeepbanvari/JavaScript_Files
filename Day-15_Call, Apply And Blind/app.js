@@ -5,11 +5,9 @@ let apiData = fetch("https://dummyjson.com/users?limit=10");
 async function getData() {
     let response = await apiData;
     let data = await response.json();
-
     let { users } = data;
 
-    console.log(users);
-
+    // console.log(users);
     addData(users);
 }
 
