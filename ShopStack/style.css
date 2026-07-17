@@ -1,36 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-:root {
-    /* Color Palette - Cool Modern Tech */
-    --primary-color: #1e40af;       /* Deep Indigo */
-    --primary-light: #3b82f6;       /* Blue */
-    --secondary-color: #06b6d4;     /* Cyan */
-    --accent-color: #0891b2;        /* Ocean Blue */
-    
-    --primary-gradient: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
-    --hover-gradient: linear-gradient(135deg, #1d4ed8 0%, #0891b2 100%);
-    
-    --bg-dark: #0f172a;             /* Slate 900 */
-    --bg-light: #f8fafc;            /* Slate 50 */
-    --card-bg: #ffffff;
-    --text-primary: #0f172a;        /* Slate 900 */
-    --text-secondary: #475569;      /* Slate 600 */
-    --text-muted: #94a3b8;          /* Slate 400 */
-    --text-light: #ffffff;
-    
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-border: rgba(241, 245, 249, 0.8);
-    
-    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 20px 25px -5px rgba(30, 64, 175, 0.1), 0 8px 10px -6px rgba(30, 64, 175, 0.1);
-    
-    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    --border-radius: 16px;
-    --border-radius-lg: 24px;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -39,8 +8,8 @@
 
 body {
     font-family: 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-primary);
+    background-color: #f8fafc;
+    color: #0f172a;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -48,10 +17,8 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* ================= HEADER ================= */
 
 .header {
     position: sticky;
@@ -61,19 +28,19 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 16px 5%;
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+    border-bottom: 1px solid rgba(241, 245, 249, 0.8);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo {
     display: inline-block;
     font-weight: 800;
     font-size: 32px;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -88,7 +55,7 @@ a {
 }
 
 .nav-menu a {
-    color: var(--text-secondary);
+    color: #475569;
     font-weight: 600;
     font-size: 16px;
     position: relative;
@@ -101,12 +68,12 @@ a {
     bottom: -6px;
     width: 0;
     height: 2px;
-    background: var(--primary-light);
-    transition: var(--transition);
+    background: #3b82f6;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-menu a:hover {
-    color: var(--primary-color);
+    color: #1e40af;
 }
 
 .nav-menu a:hover::after {
@@ -114,7 +81,7 @@ a {
 }
 
 .nav-menu .active {
-    color: var(--primary-color);
+    color: #1e40af;
     font-weight: 700;
 }
 
@@ -126,13 +93,13 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     height: 42px;
     width: 42px;
     cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cart-icon i {
@@ -155,17 +122,17 @@ a {
     border: 1px solid #e2e8f0;
     border-radius: 50px;
     gap: 10px;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search-box:focus-within {
-    border-color: var(--primary-light);
+    border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-    background: var(--card-bg);
+    background: #ffffff;
 }
 
 .search-box i {
-    color: var(--text-secondary);
+    color: #475569;
 }
 
 .search-box input {
@@ -173,23 +140,19 @@ a {
     outline: none;
     background: transparent;
     font-size: 15px;
-    color: var(--text-primary);
+    color: #0f172a;
     width: 100%;
 }
 
 .search-box input::placeholder {
-    color: var(--text-muted);
+    color: #94a3b8;
 }
-
-/* ================= CONTAINER ================= */
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px 24px;
 }
-
-/* ================= HERO SECTION ================= */
 
 .hero-section {
     display: flex;
@@ -212,11 +175,11 @@ a {
     line-height: 1.15;
     margin-bottom: 20px;
     letter-spacing: -1.5px;
-    color: var(--text-primary);
+    color: #0f172a;
 }
 
 .hero-content h1 span {
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -224,7 +187,7 @@ a {
 
 .hero-content p {
     font-size: 18px;
-    color: var(--text-secondary);
+    color: #475569;
     margin-bottom: 36px;
     line-height: 1.7;
 }
@@ -239,12 +202,12 @@ a {
     padding: 14px 32px;
     border: none;
     border-radius: 50px;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     color: white;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
 }
 
@@ -258,17 +221,17 @@ a {
     border: 2px solid #cbd5e1;
     border-radius: 50px;
     background: transparent;
-    color: var(--text-secondary);
+    color: #475569;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .explore-btn:hover {
     background: rgba(15, 23, 42, 0.03);
-    border-color: var(--text-secondary);
-    color: var(--text-primary);
+    border-color: #475569;
+    color: #0f172a;
     transform: translateY(-3px);
 }
 
@@ -293,13 +256,11 @@ a {
     100% { transform: translateY(0px); }
 }
 
-/* ================= CATEGORY ================= */
-
 .category-section h2 {
     text-align: center;
     font-size: 36px;
     margin-bottom: 48px;
-    color: var(--text-primary);
+    color: #0f172a;
     font-weight: 800;
     letter-spacing: -0.5px;
 }
@@ -311,20 +272,20 @@ a {
 }
 
 .category-card {
-    background: var(--card-bg);
+    background: #ffffff;
     padding: 36px 20px;
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(226, 232, 240, 0.8);
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .category-card:hover {
     transform: translateY(-8px);
     border-color: rgba(59, 130, 246, 0.25);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.1), 0 8px 10px -6px rgba(30, 64, 175, 0.1);
 }
 
 .category-card i {
@@ -337,8 +298,8 @@ a {
     border-radius: 50%;
     font-size: 26px;
     color: #fff;
-    background: var(--primary-gradient);
-    transition: var(--transition);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .category-card:hover i {
@@ -347,17 +308,15 @@ a {
 
 .category-card h4 {
     font-size: 18px;
-    color: var(--text-primary);
+    color: #0f172a;
     font-weight: 600;
 }
-
-/* ================= FLASH SALE ================= */
 
 .offer-content {
     padding: 80px 40px;
     text-align: center;
-    border-radius: var(--border-radius-lg);
-    background: var(--primary-gradient);
+    border-radius: 24px;
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     color: #fff;
     box-shadow: 0 20px 45px rgba(30, 64, 175, 0.2);
     position: relative;
@@ -404,11 +363,11 @@ a {
     border: none;
     border-radius: 50px;
     background: #fff;
-    color: var(--primary-color);
+    color: #1e40af;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -417,13 +376,11 @@ a {
     box-shadow: 0 8px 24px rgba(255, 255, 255, 0.35);
 }
 
-/* ================= SERVICES ================= */
-
 .service-section h2 {
     text-align: center;
     font-size: 36px;
     margin-bottom: 48px;
-    color: var(--text-primary);
+    color: #0f172a;
     font-weight: 800;
     letter-spacing: -0.5px;
 }
@@ -437,17 +394,17 @@ a {
 .service-card {
     padding: 40px 24px;
     text-align: center;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(226, 232, 240, 0.8);
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover {
     transform: translateY(-8px);
     border-color: rgba(59, 130, 246, 0.25);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.1), 0 8px 10px -6px rgba(30, 64, 175, 0.1);
 }
 
 .service-card i {
@@ -460,8 +417,8 @@ a {
     border-radius: 50%;
     font-size: 24px;
     color: #fff;
-    background: var(--primary-gradient);
-    transition: var(--transition);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover i {
@@ -471,24 +428,22 @@ a {
 .service-card h3 {
     margin-bottom: 12px;
     font-size: 20px;
-    color: var(--text-primary);
+    color: #0f172a;
     font-weight: 700;
 }
 
 .service-card p {
-    color: var(--text-secondary);
+    color: #475569;
     font-size: 15px;
     line-height: 1.6;
 }
-
-/* ================= NEWSLETTER ================= */
 
 .newsletter-section {
     width: 100%;
     margin: 40px auto 40px;
     padding: 80px 40px;
     background: linear-gradient(135deg, #1e3a8a, #0369a1, #0891b2);
-    border-radius: var(--border-radius-lg);
+    border-radius: 24px;
     text-align: center;
     color: white;
     box-shadow: 0 20px 45px rgba(30, 64, 175, 0.15);
@@ -541,7 +496,7 @@ a {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
     color: white;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .newsletter-box input::placeholder {
@@ -550,7 +505,7 @@ a {
 
 .newsletter-box input:focus {
     background: white;
-    color: var(--text-primary);
+    color: #0f172a;
     border-color: white;
 }
 
@@ -559,21 +514,19 @@ a {
     border: none;
     border-radius: 50px;
     background: white;
-    color: var(--primary-color);
+    color: #1e40af;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .newsletter-box button:hover {
-    background: var(--bg-light);
+    background: #f8fafc;
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
-
-/* ================= FOOTER ================= */
 
 .footer {
     padding: 65px 5% 30px;
@@ -599,7 +552,7 @@ a {
 .footer-info h2 {
     font-weight: 800;
     font-size: 28px;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -630,11 +583,11 @@ a {
     color: #94a3b8;
     font-size: 16px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icons i:hover {
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     border-color: transparent;
     color: white;
     transform: translateY(-3px);
@@ -654,7 +607,7 @@ a {
 }
 
 .footer-info1 a:hover {
-    color: var(--secondary-color);
+    color: #06b6d4;
     transform: translateX(4px);
 }
 
@@ -666,8 +619,6 @@ a {
     border-top: 1px solid #1e293b;
 }
 
-/* ================= PRODUCTS ================= */
-
 .products-section {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -677,7 +628,7 @@ a {
     text-align: center;
     font-size: 36px;
     margin-bottom: 48px;
-    color: var(--text-primary);
+    color: #0f172a;
     font-weight: 800;
     letter-spacing: -0.5px;
 }
@@ -688,44 +639,41 @@ a {
     gap: 32px;
 }
 
-/* Product Card */
 .product-card {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
+    background: #ffffff;
+    border-radius: 16px;
     padding: 24px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(226, 232, 240, 0.8);
     display: flex;
     flex-direction: column;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
-    height: 100%; /* Stretch to fill grid row height */
+    height: 100%; 
 }
 
 .product-card:hover {
     transform: translateY(-8px);
     border-color: rgba(59, 130, 246, 0.25);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.1), 0 8px 10px -6px rgba(30, 64, 175, 0.1);
 }
 
-/* Product Image */
 .product-card img {
     width: 100%;
     height: 200px;
     object-fit: contain;
     margin-bottom: 20px;
     mix-blend-mode: multiply;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-card:hover img {
     transform: scale(1.06);
 }
 
-/* Title */
 .product-card h3 {
     font-size: 16px;
-    color: var(--text-primary);
+    color: #0f172a;
     margin-bottom: 12px;
     font-weight: 700;
     line-height: 1.4;
@@ -733,36 +681,34 @@ a {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    height: 44px; /* Fixed height for exactly 2 lines of text */
+    height: 44px; 
 }
 
-/* Price */
 .product-card p {
     font-size: 22px;
     font-weight: 800;
-    color: var(--primary-color);
+    color: #1e40af;
     margin-bottom: 20px;
     letter-spacing: -0.5px;
-    margin-top: auto; /* Pushes price and button to bottom, aligning them */
+    margin-top: auto; 
 }
 
-/* Button */
 .product-card button {
     width: 100%;
     padding: 12px;
     border: none;
     border-radius: 50px;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     color: white;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 10px rgba(30, 64, 175, 0.15);
 }
 
 .product-card button:hover {
-    background: var(--hover-gradient);
+    background: linear-gradient(135deg, #1d4ed8 0%, #0891b2 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(30, 64, 175, 0.25);
 }
@@ -771,7 +717,6 @@ a {
     transform: translateY(0);
 }
 
-/* Cart Badge Styling */
 .cart-icon {
     position: relative;
 }
@@ -780,7 +725,7 @@ a {
     position: absolute;
     top: -5px;
     right: -5px;
-    background: #ef4444; /* red 500 */
+    background: #ef4444; 
     color: white;
     font-size: 11px;
     font-weight: 700;
@@ -791,10 +736,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--card-bg);
+    border: 2px solid #ffffff;
 }
-
-/* ================= CART PAGE ================= */
 
 .cart-section {
     padding-top: 40px;
@@ -805,7 +748,7 @@ a {
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 32px;
-    color: var(--text-primary);
+    color: #0f172a;
 }
 
 .cart-layout {
@@ -816,11 +759,11 @@ a {
 }
 
 .cart-items-container {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
+    background: #ffffff;
+    border-radius: 16px;
     border: 1px solid rgba(226, 232, 240, 0.8);
     padding: 30px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
 }
 
 .cart-item {
@@ -851,7 +794,7 @@ a {
 .cart-item-info h4 {
     font-size: 16px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #0f172a;
     margin-bottom: 4px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -861,7 +804,7 @@ a {
 
 .cart-item-info p {
     font-size: 14px;
-    color: var(--text-muted);
+    color: #94a3b8;
 }
 
 .cart-item-qty {
@@ -879,17 +822,17 @@ a {
     cursor: pointer;
     font-size: 14px;
     font-weight: 700;
-    color: var(--text-secondary);
+    color: #475569;
     width: 24px;
     height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cart-item-qty button:hover {
-    color: var(--primary-color);
+    color: #1e40af;
 }
 
 .cart-item-qty span {
@@ -902,7 +845,7 @@ a {
 .cart-item-price {
     font-size: 18px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #0f172a;
     min-width: 80px;
     text-align: right;
 }
@@ -913,7 +856,7 @@ a {
     color: #ef4444;
     cursor: pointer;
     font-size: 16px;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 8px;
     border-radius: 50%;
 }
@@ -923,13 +866,12 @@ a {
     transform: scale(1.08);
 }
 
-/* Cart Summary Card */
 .cart-summary {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
+    background: #ffffff;
+    border-radius: 16px;
     border: 1px solid rgba(226, 232, 240, 0.8);
     padding: 30px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
 }
 
 .cart-summary h3 {
@@ -945,13 +887,13 @@ a {
     justify-content: space-between;
     margin-bottom: 16px;
     font-size: 15px;
-    color: var(--text-secondary);
+    color: #475569;
 }
 
 .summary-row.total {
     font-size: 18px;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #0f172a;
     border-top: 1px solid #e2e8f0;
     padding-top: 16px;
     margin-top: 16px;
@@ -962,23 +904,22 @@ a {
     padding: 14px;
     border: none;
     border-radius: 50px;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     color: white;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
     margin-top: 24px;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 14px rgba(30, 64, 175, 0.2);
 }
 
 .checkout-btn:hover {
-    background: var(--hover-gradient);
+    background: linear-gradient(135deg, #1d4ed8 0%, #0891b2 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(30, 64, 175, 0.3);
 }
 
-/* Empty Cart View */
 .empty-cart {
     text-align: center;
     padding: 60px 20px;
@@ -986,7 +927,7 @@ a {
 
 .empty-cart i {
     font-size: 64px;
-    color: var(--text-muted);
+    color: #94a3b8;
     margin-bottom: 24px;
 }
 
@@ -997,7 +938,7 @@ a {
 }
 
 .empty-cart p {
-    color: var(--text-secondary);
+    color: #475569;
     margin-bottom: 30px;
 }
 
@@ -1005,7 +946,7 @@ a {
     display: inline-block;
     padding: 14px 32px;
     border-radius: 50px;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
     color: white;
     font-weight: 600;
     box-shadow: 0 4px 14px rgba(30, 64, 175, 0.2);
@@ -1016,7 +957,6 @@ a {
     box-shadow: 0 6px 18px rgba(30, 64, 175, 0.3);
 }
 
-/* Responsive Cart Layout */
 @media (max-width: 992px) {
     .cart-layout {
         grid-template-columns: 1fr;

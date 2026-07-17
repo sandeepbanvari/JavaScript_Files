@@ -96,5 +96,5 @@ function checkout() {
 }
 window.checkout = checkout;
 
-// Initialize on page load
+ Initialize on page load
 renderCart();

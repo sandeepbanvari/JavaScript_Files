@@ -26,6 +26,10 @@ function render(data) {
 }
 
 function search() {
+    if (searchInput) {
+        searchInput.addEventListener("input", search);
+    }
+
     const value = searchInput.value.toLowerCase();
     const filtered = products.filter(i =>
         i.title.toLowerCase().includes(value)
@@ -33,11 +37,6 @@ function search() {
     render(filtered);
 }
 window.search = search;
-
-// Backwards compatibility with event listener
-if (searchInput) {
-    searchInput.addEventListener("input", search);
-}
 
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
