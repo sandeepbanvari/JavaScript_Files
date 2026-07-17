@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <h2 class="logo">ShopStack</h2>
+        </div>
+        <nav class="nav-menu">
+            <a href="./index.html">Home</a>
+            <a href="./products.html" class="active">Products</a>
+        </nav>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search" oninput="search()" placeholder="Search products...">
+        </div>
+        <a href="./cart.html" class="cart-icon">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <span class="cart-count">0</span>
+        </a>
+    </header>
+    <main>
+
+        <!-- ================= PRODUCTS ================= -->
+        <section class="container products-section" id="products">
+            <h2>Trending Products</h2>
+            <div class="product-container">
+                <!-- Product cards injected by JavaScript -->
+            </div>
+        </section>
+
+
+
+
+
+        <!-- ================= OFFER ================= -->
+
+        <section class="container offer-section">
+
+            <div class="offer-content">
+
+                <h2>🔥 Flash Sale</h2>
+
+                <h1>Up to 60% OFF</h1>
+
+                <p>
+                    Grab your favourite products before the offer ends.
+                </p>
+
+                <button>Shop Deals</button>
+
+            </div>
+
+        </section>
+
+
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+            <div class="footer-info">
+                <h2>ShopStack</h2>
+
+                <p>Your one-stop online shopping destination.</p>
+                <div class="social-icons">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <i class="fa-brands fa-github"></i>
+
+                </div>
+            </div>
+
+            <div class="footer-info1">
+
+                <a href="#">About</a>
+                <a href="#">Products</a>
+                <a href="#">Contact</a>
+
+            </div>
+        </div>
+
+
+        <p>© 2026 ShopStack. All Rights Reserved.</p>
+
+    </footer>
+    <script src="./js/products.js"></script>
+</body>
+
+</html>
